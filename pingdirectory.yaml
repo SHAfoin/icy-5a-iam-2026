@@ -19,9 +19,9 @@ services:
       - ./conf/.sec:/run/secrets
     restart: unless-stopped
 
-  # pingadmin:
-  #   image: pingidentity/pingdataconsole:11.0.0.0-alpine_3.23.2-al17-edge
-  #   container_name: pingadmin
-  #   ports:
-  #     - "8080:8080"
-  #     - "8443:8443"
+  pingadmin:
+    image: pingidentity/pingdataconsole:11.0.0.0-alpine_3.23.2-al17-edge
+    container_name: pingadmin
+    ports:
+      - "8080:8080"
+      - "8443:8443"
