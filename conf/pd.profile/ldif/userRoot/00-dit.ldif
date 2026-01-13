@@ -1,0 +1,4 @@
+dn: ou=people,${USER_BASE_DN}
+objectClass: top
+objectClass: organizationalUnit
+ou: people

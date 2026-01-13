@@ -1,0 +1,27 @@
+services:
+  pingdirectory:
+    image: pingidentity/pingdirectory:11.0.0.0-alpine_3.23.2-al17-edge
+    container_name: pingdirectory
+    environment:
+      - PING_IDENTITY_ACCEPT_EULA=YES
+      - DOMAIN_NAME=localhost
+      # - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
+      # - SERVER_PROFILE_PATH=getting-started/pingdirectory
+      - PING_IDENTITY_DEVOPS_USER
+      - PING_IDENTITY_DEVOPS_KEY
+      - USER_BASE_DN=dc=insa
+    ports:
+      - "1389:1389"
+      - "1443:1443"
+    volumes:
+      - "./license.lic:/opt/staging/pd.profile/server-root/pre-setup/PingDirectory.lic"
+      - ./conf/.sec:/run/secrets
+      - ./conf:/tmp/server-profile:ro
+    restart: unless-stopped
+
+  pingadmin:
+    image: pingidentity/pingdataconsole:11.0.0.0-alpine_3.23.2-al17-edge
+    container_name: pingadmin
+    ports:
+      - "8080:8080"
+      - "8443:8443"
