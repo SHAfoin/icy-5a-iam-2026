@@ -9,7 +9,7 @@ services:
       - SERVER_PROFILE_PATH=conf
       - PING_IDENTITY_DEVOPS_USER
       - PING_IDENTITY_DEVOPS_KEY
-      - USER_BASE_DN=dc=insa,dc=local
+      - USER_BASE_DN=o=insa
     ports:
       - "1389:1389"
       - "1443:1443"
