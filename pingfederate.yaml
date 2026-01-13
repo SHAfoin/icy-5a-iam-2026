@@ -1,0 +1,11 @@
+services:
+  pingfederate:
+    image: pingidentity/pingfederate:13.0.0-alpine_3.23.2-al17-edge
+    container_name: pingfederate
+    ports:
+      - "9999:9999"
+      - "9031:9031"
+    environment:
+      - PING_IDENTITY_ACCEPT_EULA=YES
+    volumes:
+      - "./license_pingfederate.lic:/opt/out/instance/server/default/conf/pingfederate.lic"
