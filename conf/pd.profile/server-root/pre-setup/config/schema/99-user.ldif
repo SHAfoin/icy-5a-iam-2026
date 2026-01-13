@@ -1,0 +1,22 @@
+dn: cn=schema
+objectClass: top
+objectClass: ldapSubentry
+objectClass: subschema
+cn: schema
+attributeTypes: ( address-OID NAME 'address' SYNTAX 1.3.6.1.4.1.1466.115.121.1.41 USAGE userApplications )
+attributeTypes: ( service-OID NAME 'service' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 USAGE userApplications X-ALLOWED-VALUES ( 'Financier' 'Administratif' 'P\c3\a9dagogique' 'Scolarit\c3\a9' ) X-ALLOWED-VALUE ( 'Financier' 'Administratif' 'P\c3\a9dagogique' 'Scolarit\c3\a9' ) )
+attributeTypes: ( responsableSite-OID NAME 'responsableSite' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE userApplications )
+attributeTypes: ( sitePrincipal-OID NAME 'sitePrincipal' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE userApplications )
+attributeTypes: ( roleApplicatif-OID NAME 'roleApplicatif' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE userApplications )
+attributeTypes: ( alumni-OID NAME 'alumni' SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 USAGE userApplications )
+attributeTypes: ( entryYear-OID NAME 'entryYear' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 USAGE userApplications X-MIN-INT-VALUE '1900' X-MAX-INT-VALUE '2100' )
+attributeTypes: ( job-OID NAME 'job' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE userApplications )
+attributeTypes: ( site-OID NAME 'site' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE userApplications )
+attributeTypes: ( responsableFicheMetier-OID NAME 'responsableFicheMetier' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE userApplications )
+attributeTypes: ( responsableHierarchique-OID NAME 'responsableHierarchique' USAGE userApplications )
+attributeTypes: ( username-OID NAME 'username' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 USAGE userApplications )
+attributeTypes: ( speciality-OID NAME 'speciality' USAGE userApplications X-ALLOWED-VALUES ( 'ME' 'ICy' 'TNSID' 'IIA' 'AVM' 'GI' ) X-ALLOWED-VALUE ( 'ME' 'ICy' 'TNSID' 'IIA' 'AVM' 'GI' ) )
+attributeTypes: ( responsableApplication-OID NAME 'responsableApplication' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE userApplications )
+objectClasses: ( roleApp-OID NAME 'roleApp' MUST ( name $ responsableApplication ) )
+objectClasses: ( metierINSA-OID NAME 'metierINSA' MUST ( name $ description $ responsableFicheMetier ) )
+objectClasses: ( personINSA-OID NAME 'personINSA' MUST ( cn $ mail $ sn $ telephoneNumber $ username $ job $ sitePrincipal $ roleApplicatif ) MAY ( responsableHierarchique $ alumni $ company $ service $ speciality $ entryYear ) )
