@@ -14,6 +14,7 @@ services:
       - "1389:1389"
       - "1443:1443"
       - "1636:1636"
+      - "8989:8989"
     volumes:
       - "./license.lic:/opt/staging/pd.profile/server-root/pre-setup/PingDirectory.lic"
       - ./conf/.sec:/run/secrets
