@@ -17,6 +17,8 @@ services:
       - "./license.lic:/opt/staging/pd.profile/server-root/pre-setup/PingDirectory.lic"
       - ./conf/.sec:/run/secrets
     restart: unless-stopped
+    profiles:
+      - directory
 
   # pingadmin:
   #   image: pingidentity/pingdataconsole:11.0.0.0-alpine_3.23.2-al17-edge
@@ -35,3 +37,5 @@ services:
       - PING_IDENTITY_ACCEPT_EULA=YES
     volumes:
       - "./license_pingfederate.lic:/opt/out/instance/server/default/conf/pingfederate.lic"
+    profiles:
+      - federate
