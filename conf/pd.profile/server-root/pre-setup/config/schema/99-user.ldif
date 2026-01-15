@@ -20,4 +20,4 @@ attributeTypes: ( responsableApplication-OID NAME 'responsableApplication' SYNTA
 objectClasses: ( siteINSA-OID NAME 'siteINSA' STRUCTURAL MUST ( address $ name ) MAY responsableSite )
 objectClasses: ( roleApp-OID NAME 'roleApp' STRUCTURAL MUST name MAY responsableApplication )
 objectClasses: ( metierINSA-OID NAME 'metierINSA' STRUCTURAL MUST ( description $ name ) MAY responsableFicheMetier )
-objectClasses: ( personINSA-OID NAME 'personINSA' STRUCTURAL MUST ( cn $ job $ mail $ roleApplicatif $ sitePrincipal $ sn $ telephoneNumber $ username ) MAY ( alumni $ company $ entryYear $ responsableHierarchique $ service $ speciality ) )
+objectClasses: ( personINSA-OID NAME 'personINSA' STRUCTURAL MUST ( cn $ job $ mail $ roleApplicatif $ sitePrincipal $ sn $ telephoneNumber $ username ) MAY ( alumni $ company $ entryYear $ responsableHierarchique $ service $ speciality $ userPassword ) )
